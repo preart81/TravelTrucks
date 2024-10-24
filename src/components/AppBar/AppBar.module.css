@@ -2,8 +2,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px solid var(--badges);
+  position: sticky;
+  top: 0;
   padding: 24px 64px;
+  background: var(--inputs);
+  border-bottom: 1px solid var(--badges);
 }
 
 .logo {

@@ -1,9 +1,17 @@
+nav {
+  display: flex;
+  gap: 32px;
+}
+
 .link {
   display: inline-block;
-  text-decoration: none;
-  padding: 12px;
+  font-size: 16px;
+  font-family: var(--font-family);
   font-weight: 700;
+  line-height: 150%;
   color: #2a363b;
+  text-align: center;
+  text-decoration: none;
 }
 
 .link.active {
