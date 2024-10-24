@@ -17,7 +17,7 @@ const styles = {
 export default function CatalogPage() {
   return (
     <>
-      <DocumentTitle>TravelTrucks:Cataog</DocumentTitle>
+      <DocumentTitle>TravelTrucks: Cataog</DocumentTitle>
 
       <div style={styles.container}>
         <h1 style={styles.title}>TravelTrucks Catalog</h1>
