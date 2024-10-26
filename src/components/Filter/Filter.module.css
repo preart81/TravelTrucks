@@ -1,6 +1,95 @@
 .filterContainer {
   width: 360px;
   margin-top: 48px;
-  background: var(--White, #fff);
+}
+
+.inputLabel {
+  color: var(--gray);
+}
+
+.input {
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  width: 360px;
+  height: 56px;
+  margin-top: 8px;
+  padding: 18px 18px 18px 48px;
+  background: var(--inputs);
+  border: none;
+  border-radius: 12px;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 20px;
+  top: 25px;
+  border: none;
+  color: var(--gray);
+}
+
+.filterTitle {
+  margin-top: 40px;
+  color: var(--text);
+}
+
+.equipmentTitle {
+  margin-top: 40px;
+  color: var(--main);
+}
+
+.devider {
+  border: none;
+  border-top: 1px solid var(--gray-light);
+  margin: 24px 0;
+}
+
+.checkboxGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
+  gap: 8px;
+}
+
+.checkboxLabel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 96px;
+  border-radius: 12px;
   border: 1px solid var(--Gray-light, #dadde1);
+  mix-blend-mode: multiply;
+  text-align: center;
+}
+
+.active {
+  border: 1px solid var(--button);
+}
+
+.hidden {
+  display: none;
+}
+
+.submitButton {
+  margin-top: 32px;
+  padding: 16px 48px;
+  background-color: var(--button);
+  border: none;
+  border-radius: 200px;
+  font-size: 16px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  line-height: 150%;
+  color: var(--white);
+  text-decoration: none;
+  letter-spacing: -0.01em;
 }
