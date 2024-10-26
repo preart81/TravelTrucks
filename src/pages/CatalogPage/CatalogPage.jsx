@@ -1,26 +1,25 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import DocumentTitle from '../../components/DocumentTitle';
-
-const styles = {
-  container: {
-    minHeight: 'calc(100vh - 50px)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontWeight: 500,
-    fontSize: 48,
-    textAlign: 'center',
-  },
-};
+import Filter from '../../components/Filter/Filter';
+import TrucksList from '../../components/TrucksList/TrucksList';
+import { fetchTrucks } from '../../redux/trtucks/operations';
+import css from './CatalogPage.module.css';
 
 export default function CatalogPage() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchTrucks());
+  }, [dispatch]);
+
+  
   return (
     <>
       <DocumentTitle>TravelTrucks: Cataog</DocumentTitle>
 
-      <div style={styles.container}>
-        <h1 style={styles.title}>TravelTrucks Catalog</h1>
+      <div className={css.container}>
+        <Filter />
+        <TrucksList />
       </div>
     </>
   );

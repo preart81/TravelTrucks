@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import ButtonLink from '../../components/ButtonLink/ButtonLink';
 import DocumentTitle from '../../components/DocumentTitle';
 import css from './HomePage.module.css';
 
@@ -9,10 +9,12 @@ export default function HomePage() {
 
       <div className={css.container}>
         <h1 className={css.title}>Campers of your dreams</h1>
-        <p>You can find everything you want in our catalog</p>
-        <Link to="/catalog" className={css.link}>
+        <p className={css.subtitle} style={{ marginBottom: '56px' }}>
+          You can find everything you want in our catalog
+        </p>
+        <ButtonLink to="/catalog" white={0}>
           View Now
-        </Link>
+        </ButtonLink>
       </div>
     </>
   );

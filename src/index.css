@@ -1,3 +1,5 @@
+@import '../node_modules/modern-normalize/modern-normalize.css';
+
 :root {
   --main: #101828;
   --text: #475467;
@@ -13,8 +15,10 @@
 }
 
 body {
-  margin: 0;
   font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 24px;
+  min-width: 1440px;
 }
 
 h1,
@@ -25,4 +29,23 @@ h5,
 h6,
 p {
   margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+h2 {
+  /* font-family: Inter; */
+  font-size: 24px;
+  /* font-style: normal; */
+  font-weight: 600;
+  line-height: 32px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }

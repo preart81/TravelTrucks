@@ -1,0 +1,51 @@
+.truckImg {
+  object-fit: cover;
+  flex-shrink: 0;
+  height: 320px;
+  border-radius: 10px;
+}
+
+.truckInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+}
+
+.infoTitleContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.infoTitle {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  color: var(--main);
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.detailsSpan {
+ gap: 4px;
+}
+
+.description {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  display: -webkit-box;
+  overflow: hidden;
+  width: 100%;
+  color: var(--text);
+  text-overflow: ellipsis;
+}
