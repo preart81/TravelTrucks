@@ -65,6 +65,7 @@ const BookingForm = () => {
                   nameOfDay.substr(0, 3).toUpperCase()
                 }
                 dateFormat={'dd/MM/yyyy'}
+                minDate={new Date()}
                 selected={selectedDate}
                 onChange={date => {
                   setSelectedDate(date);
