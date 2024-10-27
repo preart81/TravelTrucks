@@ -42,3 +42,12 @@
   transform: translateY(-50%);
   color: red;
 }
+
+.react-datepicker__day--today,
+.react-datepicker__month-text--today,
+.react-datepicker__quarter-text--today,
+.react-datepicker__year-text--today {
+  border: 1px solid #ff0073;
+  font-weight: bold;
+  font-size: 32px;
+}
