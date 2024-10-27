@@ -8,7 +8,6 @@ import css from './TruckReviews.module.css';
 const TruckReviews = () => {
   const truck = useSelector(selectCurrentTruck);
   const reviews = truck.reviews || [];
-  console.log(reviews);
   return (
     <div className={css.containerReviews}>
       <ul className={css.reviews}>
