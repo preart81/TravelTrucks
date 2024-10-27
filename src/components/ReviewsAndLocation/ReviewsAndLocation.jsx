@@ -7,7 +7,7 @@ const ReviewsAndLocation = ({ truck }) => {
   return (
     <p className={css.details}>
       <span className={clsx(css.details, css.detailsSpan)}>
-        <Icon name="star" width={16} height={16} />
+        <Icon name="star" width={16} height={16} color="var(--rating)" />
 
         <Link to={`/catalog/${truck.id}/reviews`} className={css.link}>
           {truck.rating}({truck.reviews.length} Reviews)

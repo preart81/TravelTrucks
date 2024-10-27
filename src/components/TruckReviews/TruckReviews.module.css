@@ -1,0 +1,30 @@
+.containerReviews {
+  flex: 1;
+}
+
+.reviews{
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+.name {
+  display: flex;
+  flex-direction: column;
+  color: var(--main);
+}
+
+.comment {
+  color: var(--text);
+}
+
+.review{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.person{
+  display: flex;
+  align-items: center;
+  gap:16px;
+}

@@ -1,0 +1,7 @@
+.containerBooking {
+  flex: 1;
+  padding: 44px;
+  background-color: #dcdada;
+  border: 1px solid var(--gray-light);
+  border-radius: 10px;
+}

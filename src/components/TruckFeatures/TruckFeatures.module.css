@@ -1,7 +1,7 @@
 .containerFeatures {
   border-radius: 10px;
   background: var(--inputs, #f7f7f7);
-  width: 50%;
+  flex: 1;
   padding: 44px 52px;
 }
 
