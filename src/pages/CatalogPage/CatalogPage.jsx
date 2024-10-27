@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import DocumentTitle from '../../components/DocumentTitle';
 import Filter from '../../components/Filter/Filter';
 import TrucksList from '../../components/TrucksList/TrucksList';
-import { fetchTrucks } from '../../redux/trtucks/operations';
+import { fetchTrucks } from '../../redux/trucks/operations';
 import css from './CatalogPage.module.css';
 
 export default function CatalogPage() {
@@ -12,7 +12,6 @@ export default function CatalogPage() {
     dispatch(fetchTrucks());
   }, [dispatch]);
 
-  
   return (
     <>
       <DocumentTitle>TravelTrucks: Cataog</DocumentTitle>

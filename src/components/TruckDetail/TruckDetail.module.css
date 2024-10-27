@@ -1,0 +1,76 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  padding: 48px 64px;
+  width: 100%;
+}
+
+.truckInfo {
+  width: 100%;
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.detailsSpan {
+  gap: 4px;
+}
+
+.price {
+  margin-top: 16px;
+}
+
+.truckGallery {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  width: 100%;
+  justify-content: left;
+  align-items: flex-start;
+}
+
+.truckImg {
+  object-fit: cover;
+  flex-shrink: 0;
+  height: 312px;
+  border-radius: 10px;
+}
+
+.description {
+  margin-top: 28px;
+  color: var(--text);
+}
+
+.nav {
+  margin-top: 60px;
+}
+
+.link {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: var(--main);
+}
+
+.link.active::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  background-color: var(--button);
+  margin-top: 24px;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.bottomContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}

@@ -53,7 +53,7 @@ const Filter = () => {
 
             {/* Vehicle equipment checkboxes ------------------------------ */}
             <p className={clsx(css.equipmentTitle, 'h3')}>Vehicle equipment</p>
-            <hr className={css.devider} />
+            <hr className={'divider'} />
             <div className={css.checkboxGrid}>
               {equipmentOptions.map(option => (
                 <label
@@ -78,7 +78,7 @@ const Filter = () => {
 
             {/* Vehicle type checkboxes ----------------------------------- */}
             <p className={clsx(css.equipmentTitle, 'h3')}>Vehicle type</p>
-            <hr className={css.devider} />
+            <hr className={'divider'} />
             <div className={css.checkboxGrid}>
               {vehicleOptions.map(option => (
                 <label

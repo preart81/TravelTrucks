@@ -1,0 +1,5 @@
+.containerFeatures {
+  border-radius: 10px;
+  background: var(--Inputs, #f7f7f7);
+  width: 50%;
+}

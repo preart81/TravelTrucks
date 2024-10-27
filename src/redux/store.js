@@ -10,7 +10,7 @@ import {
   REHYDRATE,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { trucksReducer } from './trtucks/slice';
+import { trucksReducer } from './trucks/slice';
 
 // Persisting token field from auth slice to localstorage
 const authPersistConfig = {
