@@ -86,4 +86,12 @@
   color: var(--white);
   text-decoration: none;
   letter-spacing: -0.01em;
+  outline: none;
+}
+
+.submitButton:hover,
+.submitButton:active,
+.submitButton:focus {
+  background-color: var(--button-hover);
+
 }

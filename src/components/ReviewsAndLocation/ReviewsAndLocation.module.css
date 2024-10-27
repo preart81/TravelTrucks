@@ -1,0 +1,23 @@
+.details {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.detailsSpan {
+  gap: 4px;
+}
+
+.link,
+.link:visited,
+.link:hover,
+.link:active {
+  text-decoration: none;
+  color: var(--main);
+}
+
+.link:hover,
+.link:active,
+.link:focus {
+  text-decoration: underline;
+}

@@ -10,8 +10,8 @@ import {
 } from '../../redux/trucks/selectors';
 import BookingForm from '../BookingForm/BookingForm';
 import DocumentTitle from '../DocumentTitle';
-import Icon from '../Icon/Icon';
 import NotFound from '../NotFound/NotFound';
+import ReviewsAndLocation from '../ReviewsAndLocation/ReviewsAndLocation';
 import css from './TruckDetail.module.css';
 
 const TruckDetail = () => {
@@ -46,15 +46,8 @@ const TruckDetail = () => {
         <div className={css.container}>
           <div className={css.truckInfo}>
             <h2>{truck.name}</h2>
-            <p className={css.details}>
-              <span className={clsx(css.details, css.detailsSpan)}>
-                <Icon name="star" width={16} height={16} /> {truck.rating}(
-                {truck.reviews.length} Reviews)
-              </span>
-              <span className={clsx(css.details, css.detailsSpan)}>
-                <Icon name="location" width={16} height={16} /> {truck.location}
-              </span>
-            </p>
+
+            <ReviewsAndLocation truck={truck} />
             <p className={clsx(css.price, 'h2')}>€{truck.price.toFixed(2)}</p>
 
             <ul className={css.truckGallery}>

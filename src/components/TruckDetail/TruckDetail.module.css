@@ -10,16 +10,6 @@
   width: 100%;
 }
 
-.details {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.detailsSpan {
-  gap: 4px;
-}
-
 .price {
   margin-top: 16px;
 }

@@ -1,22 +1,36 @@
 .link {
   padding: 16px 48px;
- 
+
   border-radius: 200px;
   font-size: 16px;
   font-family: var(--font-family);
   font-weight: 500;
   line-height: 150%;
- 
+
   text-decoration: none;
   letter-spacing: -0.01em;
 }
 
-.red {
+.link.red {
   background-color: var(--button);
   color: var(--white);
 }
 
-.white {
-  background-color: var(--gray-light);
-  color: var(--text);
+.link.red:hover,
+.link.red:active,
+.link.red:focus {
+  background-color: var(--button-hover);
+}
+
+.link.white {
+  border: 1px solid var(--gray-light);
+  color: var(--main);
+  background-color: var(--white);
+}
+
+.link.white:hover,
+.link.white:active,
+.link.white:focus {
+  border-radius: 200px;
+  border: 1px solid var(--button-hover);
 }
