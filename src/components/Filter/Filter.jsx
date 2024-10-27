@@ -101,7 +101,11 @@ const Filter = () => {
               ))}
             </div>
 
-            <button type="submit" className={css.submitButton}>
+            <button
+              type="submit"
+              className="submitButton"
+              style={{ marginTop: '40px' }}
+            >
               Search
             </button>
           </form>

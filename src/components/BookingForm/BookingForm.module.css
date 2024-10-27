@@ -1,7 +1,44 @@
 .containerBooking {
   flex: 1;
   padding: 44px;
-  background-color: #dcdada;
   border: 1px solid var(--gray-light);
   border-radius: 10px;
+}
+
+.title {
+  color: var(--main);
+}
+
+.text {
+  margin-top: 8px;
+  color: var(--gray);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.fieldContainer {
+  position: relative;
+}
+
+.input {
+  outline: none;
+  resize: none;
+  width: 100%;
+  padding: 18px;
+  background: var(--inputs);
+  border: none;
+  border-radius: 12px;
+}
+
+.error {
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%);
+  color: red;
 }

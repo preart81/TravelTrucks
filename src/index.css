@@ -42,8 +42,8 @@ p {
 }
 
 a {
-  text-decoration: none;
   outline: none;
+  text-decoration: none;
 }
 
 h2,
@@ -53,9 +53,9 @@ h2,
   line-height: 32px;
 }
 
+h3,
 .h3 {
   font-size: 20px;
-  /* font-family: Inter; */
   font-style: normal;
   font-weight: 600;
   line-height: 24px;
@@ -77,8 +77,30 @@ ul {
 }
 
 .divider {
+  transform: translateY(-50%);
+  margin: 24px 0;
   border: none;
   border-top: 1px solid var(--gray-light);
-  margin: 24px 0;
-  transform: translateY(-50%);
+}
+
+.submitButton {
+  outline: none;
+  width: fit-content;
+  padding: 16px 60px;
+  background-color: var(--button);
+  border: none;
+  border-radius: 200px;
+  font-size: 16px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  line-height: 150%;
+  color: var(--white);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.submitButton:hover,
+.submitButton:active,
+.submitButton:focus {
+  background-color: var(--button-hover);
 }
