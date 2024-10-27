@@ -27,12 +27,14 @@
   color: var(--main);
 }
 
-.description {
+.trimText {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   display: -webkit-box;
   overflow: hidden;
-  width: 100%;
-  color: var(--text);
   text-overflow: ellipsis;
+}
+
+.description {
+  color: var(--text);
 }

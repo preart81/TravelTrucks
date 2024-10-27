@@ -30,14 +30,16 @@ const TruckCard = ({ truck }) => {
       <div className={css.truckInfo}>
         <div className={css.infoTitleContainer}>
           <div className={clsx(css.infoTitle, 'h2')}>
-            <h2>{truck.name}</h2>
+            <h2 className={css.trimText}>{truck.name}</h2>
             <p>€{truck.price.toFixed(2)}</p>
           </div>
 
           <ReviewsAndLocation truck={truck} />
         </div>
 
-        <p className={css.description}>{truck.description}</p>
+        <p className={clsx(css.description, css.trimText)}>
+          {truck.description}
+        </p>
 
         <EquipmentBudges truck={truck} parameters={parameters} />
         <ButtonLink to={`/catalog/${truck.id}/features`}>View Truck</ButtonLink>
