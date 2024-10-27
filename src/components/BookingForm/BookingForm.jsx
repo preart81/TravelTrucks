@@ -66,6 +66,7 @@ const BookingForm = () => {
                 }
                 dateFormat={'dd/MM/yyyy'}
                 minDate={new Date()}
+                calendarStartDay={1}
                 selected={selectedDate}
                 onChange={date => {
                   setSelectedDate(date);
@@ -75,7 +76,6 @@ const BookingForm = () => {
                 className={css.input}
                 style={{}}
               />
-
               <ErrorMessage name="date" component="div" className={css.error} />
             </div>
 
