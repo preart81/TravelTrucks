@@ -11,16 +11,17 @@ const TruckReviews = () => {
   return (
     <div className={css.containerReviews}>
       <ul className={css.reviews}>
-        {reviews.map(review => {
+        {reviews.map((review, i) => {
           const name = review.reviewer_name;
           const rating = review.reviewer_rating;
           const comment = review.comment;
           return (
-            <li key={review.id} className={css.review}>
+            <li key={i} className={css.review}>
               <div className={css.person}>
                 <Avatar name={name} />
-                <p className={clsx(css.name, 'Body2')}>{name}
-                <Rating rating={rating} />
+                <p className={clsx(css.name, 'Body2')}>
+                  {name}
+                  <Rating rating={rating} />
                 </p>
               </div>
 
