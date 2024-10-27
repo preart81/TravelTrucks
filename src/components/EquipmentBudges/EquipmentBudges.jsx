@@ -19,24 +19,20 @@ const EquipmentBudges = ({
   ],
 }) => {
   return (
-    <>
-      <ul className={css.truckEquipment}>
-        {parameters.map(parameter => {
-          const text =
-            typeof truck[parameter] !== 'boolean'
-              ? truck[parameter]
-              : parameter;
-          return (
-            truck[parameter] && (
-              <li key={parameter} className={css.budge}>
-                <Icon name={parameter} />
-                {capitalizeFirstLetter(text)}
-              </li>
-            )
-          );
-        })}
-      </ul>
-    </>
+    <ul className={css.truckEquipment}>
+      {parameters.map(parameter => {
+        const text =
+          typeof truck[parameter] !== 'boolean' ? truck[parameter] : parameter;
+        return (
+          truck[parameter] && (
+            <li key={parameter} className={css.budge}>
+              <Icon name={parameter} />
+              {capitalizeFirstLetter(text)}
+            </li>
+          )
+        );
+      })}
+    </ul>
   );
 };
 

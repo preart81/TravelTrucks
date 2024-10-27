@@ -6,6 +6,7 @@
   --white: #fff;
   --inputs: #f7f7f7;
   --badges: #f2f4f7;
+  /* --badges: #eaecef; */
   --gray: #6c717b;
   --gray-light: #dadde1;
   --button: #e44848;
@@ -19,6 +20,10 @@ body {
   font-size: 16px;
   font-family: var(--font-family);
   line-height: 24px;
+}
+
+.Body2 {
+  font-weight: 500;
 }
 
 h1,

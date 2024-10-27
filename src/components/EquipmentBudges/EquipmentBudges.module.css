@@ -12,4 +12,5 @@
   gap: 8px;
   border-radius: 100px;
   background: var(--badges);
+  mix-blend-mode: multiply;
 }

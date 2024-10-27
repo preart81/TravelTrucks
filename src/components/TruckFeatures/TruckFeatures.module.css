@@ -1,5 +1,23 @@
 .containerFeatures {
   border-radius: 10px;
-  background: var(--Inputs, #f7f7f7);
+  background: var(--inputs, #f7f7f7);
   width: 50%;
+  padding: 44px 52px;
+}
+
+.budges {
+  height: 160px;
+}
+
+.details {
+  margin-top: 44px;
+}
+.detaileGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.detailsText {
+  display: flex;
+  justify-content: space-between;
 }
