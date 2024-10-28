@@ -10,19 +10,18 @@ import {
   REHYDRATE,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { favoritesReducer } from './favorites/slice';
 import { trucksReducer } from './trucks/slice';
 
-// Persisting token field from auth slice to localstorage
-const authPersistConfig = {
-  key: 'auth',
+// Persisting token field from favorites slice to localstorage
+const favoritesPersistConfig = {
+  key: 'favorites',
   storage,
-  whitelist: ['token'],
 };
 
 export const store = configureStore({
   reducer: {
-    // auth: persistReducer(authPersistConfig, authReducer),
-    // tasks: tasksReducer,
+    favorites: persistReducer(favoritesPersistConfig, favoritesReducer),
     trucks: trucksReducer,
   },
   middleware: getDefaultMiddleware =>

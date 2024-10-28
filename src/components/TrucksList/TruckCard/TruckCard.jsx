@@ -1,6 +1,10 @@
 import clsx from 'clsx';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectFavorites } from '../../../redux/favorites/selectors';
+import { toggleFavorite } from '../../../redux/favorites/slice';
 import ButtonLink from '../../ButtonLink/ButtonLink';
 import EquipmentBudges from '../../EquipmentBudges/EquipmentBudges';
+import Icon from '../../Icon/Icon';
 import ReviewsAndLocation from '../../ReviewsAndLocation/ReviewsAndLocation';
 import css from './TruckCard.module.css';
 
@@ -18,6 +22,15 @@ const TruckCard = ({ truck }) => {
     'gas',
     'water',
   ];
+
+  const favorites = useSelector(selectFavorites);
+  const isFavorite = favorites.includes(truck.id);
+
+  const dispatch = useDispatch();
+  const handleToggleFavorite = () => {
+    dispatch(toggleFavorite(truck.id));
+  };
+
   return (
     <>
       <img
@@ -31,7 +44,16 @@ const TruckCard = ({ truck }) => {
         <div className={css.infoTitleContainer}>
           <div className={clsx(css.infoTitle, 'h2')}>
             <h2 className={css.trimText}>{truck.name}</h2>
-            <p>€{truck.price.toFixed(2)}</p>
+            <p className={css.price}>
+              €{truck.price.toFixed(2)}
+              <Icon
+                name="heart"
+                width={26}
+                height={24}
+                onClick={handleToggleFavorite}
+                color={isFavorite ? 'var(--button)' : 'var(--main)'}
+              />
+            </p>
           </div>
 
           <ReviewsAndLocation truck={truck} />
