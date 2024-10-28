@@ -1,52 +1,97 @@
 import clsx from 'clsx';
-import { Field, Formik } from 'formik';
+import { Field, Form, Formik } from 'formik';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import icons from '../../img/sprite.svg';
+import { equipmentOptions } from '../../js/utils';
+import {
+  selectFilterEquipment,
+  selectFilterLocation,
+  selectFilterVehicleType,
+} from '../../redux/filter/selectors';
+import {
+  setFilterEquipment,
+  setFilterLocation,
+  setFilterVehicleType,
+} from '../../redux/filter/slice';
+import { fetchAllTrucks } from '../../redux/trucks/operations';
+import { selectAllLocations } from '../../redux/trucks/selectors';
 import Icon from '../Icon/Icon';
 import css from './Filter.module.css';
 
 const Filter = () => {
-  const equipmentOptions = [
-    { name: 'AC', parameter: 'AC' },
-    { name: 'Automatic', parameter: 'transmission' },
-    { name: 'Kitchen', parameter: 'kitchen' },
-    { name: 'TV', parameter: 'TV' },
-    { name: 'Bathroom', parameter: 'bathroom' },
+  const vehicleOptions = [
+    { name: 'Van', form: 'panelTruck' },
+    { name: 'Fully Integrated', form: 'fullyIntegrated' },
+    { name: 'Alcove', form: 'alcove' },
   ];
 
-  const vehicleOptions = [
-    { name: 'Van', icon: 'panelTruck' },
-    { name: 'Fully Integrated', icon: 'fullyIntegrated' },
-    { name: 'Alcove', icon: 'alcove' },
-  ];
+  const allLocations = useSelector(selectAllLocations);
+  const filterLocation = useSelector(selectFilterLocation);
+  const filterEquipment = useSelector(selectFilterEquipment);
+  const filterVehicleType = useSelector(selectFilterVehicleType);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchAllTrucks());
+  }, [dispatch]);
 
   return (
     <div className={css.filterContainer}>
       {/* <p style={{ color: 'var(--gray)' }}>Location</p> */}
       <Formik
-        initialValues={{ location: '', equipment: [], vehicleType: '' }}
+        initialValues={{
+          location: filterLocation || '',
+          equipment: filterEquipment || [],
+          vehicleType: filterVehicleType || '',
+        }}
         onSubmit={values => {
-          console.log('Form values:', values);
+          dispatch(setFilterLocation(values.location));
+          dispatch(setFilterEquipment(values.equipment));
+          dispatch(setFilterVehicleType(values.vehicleType));
         }}
       >
-        {({ values, handleChange, handleBlur, handleSubmit }) => (
-          <form onSubmit={handleSubmit}>
+        {({ values, handleChange, handleBlur, setFieldValue }) => (
+          <Form>
+            {/* Vehicle location  ------------------------------------------ */}
             <label htmlFor="location" className={css.inputLabel}>
               Location
             </label>
             <div className={css.inputWrapper}>
-              <svg width={20} height={20} className={css.inputIcon}>
+              <svg
+                width={20}
+                height={20}
+                className={css.inputIcon}
+                color={values.location ? 'var(--main)' : 'var(--gray)'}
+              >
                 <use href={`${icons}#icon-location`} />
               </svg>
-              <input
+              <Field
                 id="location"
                 type="text"
                 name="location"
+                as="select"
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.location}
-                className={css.input}
-                placeholder="Location"
-              />
+                className={clsx(css.input, css.select)}
+                style={{ color: !values.location && 'var(--gray)' }}
+                placeholder="City"
+              >
+                <option value="" style={{ color: 'var(--main)' }}>
+                  All locations
+                </option>
+                {allLocations.map(location => (
+                  <option
+                    key={location}
+                    value={location}
+                    style={{ color: 'var(--main)' }}
+                  >
+                    {location}
+                  </option>
+                ))}
+              </Field>
             </div>
 
             <p className={css.filterTitle}>Filters</p>
@@ -67,6 +112,7 @@ const Filter = () => {
                   <Field
                     type="checkbox"
                     name="equipment"
+                    // name={option.parameter}
                     value={option.name}
                     className={css.hidden}
                   />
@@ -86,16 +132,18 @@ const Filter = () => {
                   className={clsx(
                     'button',
                     css.checkboxLabel,
-                    values.vehicleType === option.name ? css.active : ''
+                    values.vehicleType === option.form ? css.active : ''
                   )}
                 >
                   <Field
                     type="radio"
                     name="vehicleType"
-                    value={option.name}
+                    value={
+                      values.vehicleType === option.form ? '' : option.form
+                    }
                     className={css.hidden}
                   />
-                  <Icon name={option.icon} width={32} height={32} />
+                  <Icon name={option.form} width={32} height={32} />
                   <span style={{ userSelect: 'none' }}>{option.name}</span>
                 </label>
               ))}
@@ -108,7 +156,7 @@ const Filter = () => {
             >
               Search
             </button>
-          </form>
+          </Form>
         )}
       </Formik>
     </div>

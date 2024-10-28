@@ -23,6 +23,12 @@
   border-radius: 12px;
 }
 
+.select{
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
 .inputWrapper {
   position: relative;
   display: flex;
@@ -34,7 +40,6 @@
   left: 20px;
   top: 25px;
   border: none;
-  color: var(--gray);
 }
 
 .filterTitle {

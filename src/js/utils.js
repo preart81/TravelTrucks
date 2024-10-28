@@ -17,3 +17,11 @@ export const formName = {
 export const getIcon = name => {
   return `${icons}#${name}`;
 };
+
+export const equipmentOptions = [
+  { name: 'AC', parameter: 'AC', filter: 'true' },
+  { name: 'Automatic', parameter: 'transmission', filter: 'automatic' },
+  { name: 'Kitchen', parameter: 'kitchen', filter: 'true' },
+  { name: 'TV', parameter: 'TV', filter: 'true' },
+  { name: 'Bathroom', parameter: 'bathroom', filter: 'true' },
+];
