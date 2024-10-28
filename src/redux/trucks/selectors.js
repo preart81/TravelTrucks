@@ -1,4 +1,4 @@
-export const selectLoading = state => state.trucks.loading;
+export const selectLoading = state => state.trucks.isLoading;
 
 export const selectError = state => state.trucks.error;
 

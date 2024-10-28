@@ -13,6 +13,7 @@ import DocumentTitle from '../DocumentTitle';
 import NotFound from '../NotFound/NotFound';
 import ReviewsAndLocation from '../ReviewsAndLocation/ReviewsAndLocation';
 import css from './TruckDetail.module.css';
+import Loader from '../Loader/Loader';
 
 const TruckDetail = () => {
   const id = useParams().id;
@@ -41,7 +42,7 @@ const TruckDetail = () => {
       <DocumentTitle>
         TravelTrucks{truck.name ? `: ${truck.name}` : ''}
       </DocumentTitle>
-      {isLoading && <div>Loading...</div>}
+      {isLoading && <Loader />}
       {truck.id && (
         <div className={css.container}>
           <div className={css.truckInfo}>
@@ -84,7 +85,7 @@ const TruckDetail = () => {
           </nav>
           <hr className={'divider'} />
           <div className={css.bottomContainer}>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Loader />}>
               <Outlet />
             </Suspense>
             <BookingForm />
