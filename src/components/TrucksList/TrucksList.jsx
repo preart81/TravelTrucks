@@ -21,7 +21,6 @@ const TrucksList = () => {
 
   const isLoading = useSelector(selectLoading);
   const isError = useSelector(selectError);
-  const filters = useSelector(state => state.filter);
 
   const totalItems = useSelector(selectTotalItems);
   const currentPage = useSelector(selectCurrentPage);
