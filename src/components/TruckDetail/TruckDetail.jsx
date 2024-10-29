@@ -10,10 +10,10 @@ import {
 } from '../../redux/trucks/selectors';
 import BookingForm from '../BookingForm/BookingForm';
 import DocumentTitle from '../DocumentTitle';
+import Loader from '../Loader/Loader';
 import NotFound from '../NotFound/NotFound';
 import ReviewsAndLocation from '../ReviewsAndLocation/ReviewsAndLocation';
 import css from './TruckDetail.module.css';
-import Loader from '../Loader/Loader';
 
 const TruckDetail = () => {
   const id = useParams().id;

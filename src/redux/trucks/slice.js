@@ -18,11 +18,19 @@ const trucksSlice = createSlice({
     allLocations: [],
     isLoading: false,
     error: null,
+    totalItems: 0,
+    itemsPerPage: 10,
+    currentPage: 1,
   },
 
   reducers: {
+    setCurrentPage(state, action) {
+      state.currentPage = action.payload;
+    },
     clearTrucks: state => {
       state.items = [];
+      state.currentPage = 1;
+      state.totalItems = 0;
     },
   },
 
@@ -45,7 +53,12 @@ const trucksSlice = createSlice({
       .addCase(fetchTrucks.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.items = action.payload;
+        const newItems = action.payload.items.filter(
+          newItem =>
+            !state.items.some(existingItem => existingItem.id === newItem.id)
+        );
+        state.items = [...state.items, ...newItems];
+        state.totalItems = action.payload.total;
       })
       .addCase(fetchTrucks.rejected, handleRejected)
 
@@ -60,5 +73,5 @@ const trucksSlice = createSlice({
   },
 });
 
-export const { clearTrucks } = trucksSlice.actions;
+export const { clearTrucks, setCurrentPage } = trucksSlice.actions;
 export const trucksReducer = trucksSlice.reducer;

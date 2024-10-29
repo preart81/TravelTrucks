@@ -14,12 +14,19 @@ import {
   setFilterLocation,
   setFilterVehicleType,
 } from '../../redux/filter/slice';
-import { fetchAllTrucks } from '../../redux/trucks/operations';
+import { fetchAllTrucks, fetchTrucks } from '../../redux/trucks/operations';
 import { selectAllLocations } from '../../redux/trucks/selectors';
+import { clearTrucks } from '../../redux/trucks/slice';
 import Icon from '../Icon/Icon';
 import css from './Filter.module.css';
 
 const Filter = () => {
+  // const [searchParams, setSearchParams] = useSearchParams();
+  // const paramsObj = useMemo(
+  //   () => Object.fromEntries([...searchParams]),
+  //   [searchParams]
+  // );
+
   const vehicleOptions = [
     { name: 'Van', form: 'panelTruck' },
     { name: 'Fully Integrated', form: 'fullyIntegrated' },
@@ -31,15 +38,32 @@ const Filter = () => {
   const filterEquipment = useSelector(selectFilterEquipment);
   const filterVehicleType = useSelector(selectFilterVehicleType);
 
+  // const filters = getFiltersFromSearchParams(paramsObj);
+  // console.log('filters: ', filters);
+
+  // useEffect(() => {
+  //   if (Object.keys(paramsObj).length > 0) {
+  //     setSearchParams(paramsObj);
+  //   }
+  // }, [paramsObj, setSearchParams]);
+
+  // const params = getFilterParamsFromStore({
+  //   location: filterLocation,
+  //   equipment: filterEquipment,
+  //   vehicleType: filterVehicleType,
+  // });
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchAllTrucks());
+    // if (Object.keys(searchParams).length === 0) {
+    //   setSearchParams(params);
+    // }
   }, [dispatch]);
 
   return (
     <div className={css.filterContainer}>
-      {/* <p style={{ color: 'var(--gray)' }}>Location</p> */}
       <Formik
         initialValues={{
           location: filterLocation || '',
@@ -47,12 +71,20 @@ const Filter = () => {
           vehicleType: filterVehicleType || '',
         }}
         onSubmit={values => {
+          // очищаємо попередні значення
+          dispatch(clearTrucks());
+          // Оновлюємо Redux стейт
           dispatch(setFilterLocation(values.location));
           dispatch(setFilterEquipment(values.equipment));
           dispatch(setFilterVehicleType(values.vehicleType));
+
+          // // Оновлюємо URL-параметри
+          // setSearchParams(params);
+
+          dispatch(fetchTrucks());
         }}
       >
-        {({ values, handleChange, handleBlur, setFieldValue }) => (
+        {({ values, handleChange, handleBlur }) => (
           <Form>
             {/* Vehicle location  ------------------------------------------ */}
             <label htmlFor="location" className={css.inputLabel}>
@@ -112,7 +144,6 @@ const Filter = () => {
                   <Field
                     type="checkbox"
                     name="equipment"
-                    // name={option.parameter}
                     value={option.name}
                     className={css.hidden}
                   />

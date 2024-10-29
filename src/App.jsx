@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
 import { Layout } from './components/Layout/Layout';
 import TruckDetail from './components/TruckDetail/TruckDetail';
@@ -14,11 +14,11 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/catalog" element={<CatalogPage />} />
         <Route path="/catalog/:id" element={<TruckDetail />}>
-          <Route path="features" element={<TruckFeatures  />} />
+          <Route path="features" element={<TruckFeatures />} />
           <Route path="reviews" element={<TruckReviews />} />
         </Route>
 
-        <Route path="*" element={<HomePage />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Layout>
   );
