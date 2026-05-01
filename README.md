@@ -8,7 +8,7 @@ make a booking.
 ## Live page
 
 The live page of the project:
-travel-trucks-tawny.vercel.app
+https://travel-trucks-tawny.vercel.app
 
 ## Getting it up and running
 
